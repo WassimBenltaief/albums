@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="BaseTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaryLightColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/secondaryLightColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
+
+        <item name="snackbarStyle">@style/SnackBarStyle</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="colorError">@color/errorColor</item>
+    </style>
+
+    <style name="SnackBarStyle" parent="Widget.MaterialComponents.Snackbar">
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+    </style>
+</resources>

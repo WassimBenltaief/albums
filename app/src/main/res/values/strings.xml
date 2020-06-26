@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Showcase</string>
+    <string name="generic_albums_error">Unable to load albums</string>
+    <string name="lorem_ipsum">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda commodi deserunt distinctio error laboriosam, molestiae nam nesciunt nostrum provident repudiandae, ut vel velit. Accusantium exercitationem harum minus, repellendus sequi suscipit?"</string>
+    <string name="generic_single_album_error">Unable to load album details</string>
+    <string name="album">Album</string>
+    <string name="title_albums">Albums</string>
+</resources>

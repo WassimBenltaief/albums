@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph.xml"
+    app:startDestination="@id/album_list_dest">
+
+    <fragment
+        android:id="@+id/album_list_dest"
+        android:name="com.showcase.albums.view.list.view.AlbumListFragment"
+        android:label="AlbumListFragment"
+        tools:layout="@layout/albumlist_fragment">
+        <action
+            android:id="@+id/action_next"
+            app:destination="@id/album_dest"
+            app:enterAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fragment_fade_exit"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/album_dest"
+        android:name="com.showcase.albums.view.item.view.AlbumFragment"
+        android:label="AlbumFragment">
+
+        <argument
+            android:name="albumId"
+            app:argType="string" />
+        <argument
+            android:name="album"
+            app:argType="string" />
+        <argument
+            android:name="artist"
+            app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/profile_dest"
+        android:name="com.showcase.features.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+</navigation>

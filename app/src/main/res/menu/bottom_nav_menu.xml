@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@id/album_list_dest"
+        android:icon="@drawable/ic_album_list"
+        android:title="Albums" />
+    <item
+        android:id="@id/profile_dest"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile" />
+</menu>
