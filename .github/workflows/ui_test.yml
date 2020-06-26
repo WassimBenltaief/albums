@@ -1,4 +1,4 @@
-name: ui test
+name: Ui Test
 
 on:
   push:
