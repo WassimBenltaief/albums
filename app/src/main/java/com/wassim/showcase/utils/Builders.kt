@@ -1,6 +1,6 @@
 package com.wassim.showcase.utils
 
-import com.wassim.showcase.data.ApiService
+import com.wassim.showcase.data.remote.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

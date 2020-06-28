@@ -1,7 +1,7 @@
 package com.wassim.showcase.features.albums.list.usecase
 
 import com.wassim.showcase.data.Album
-import com.wassim.showcase.data.ApiService
+import com.wassim.showcase.data.remote.ApiService
 import com.wassim.showcase.utils.Result
 import com.wassim.showcase.utils.safeApiCall
 import kotlinx.coroutines.Dispatchers
