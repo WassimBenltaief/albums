@@ -5,7 +5,7 @@ import androidx.lifecycle.Observer
 import com.wassim.showcase.features.albums.item.SingleAlbumUiState
 import com.wassim.testutils.MainCoroutineRule
 import com.wassim.testutils.observeForTesting
-import com.wassim.testutils.stubOneAlbum
+import com.wassim.testutils.album
 import com.wassim.showcase.R
 import com.wassim.showcase.features.albums.item.usecase.GetAlbumInfoUseCase
 import com.wassim.showcase.features.albums.item.view.AlbumViewModel
@@ -32,7 +32,7 @@ class AlbumViewModelTest {
 
     private val getAlbumInfoUseCase: GetAlbumInfoUseCase = mockk()
     private val albumId = "albumId"
-    private val mockedSuccessResponse = stubOneAlbum(albumId)
+    private val mockedSuccessResponse = album(albumId)
     private val uiStateObserver: Observer<SingleAlbumUiState> = spyk()
 
     @Test

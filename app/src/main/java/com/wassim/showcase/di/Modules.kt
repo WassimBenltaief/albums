@@ -1,6 +1,7 @@
 package com.wassim.showcase.di
 
 import coil.ImageLoader
+import com.wassim.showcase.data.local.AlbumsDatabase
 import com.wassim.showcase.features.albums.item.usecase.GetAlbumInfoUseCase
 import com.wassim.showcase.features.albums.item.usecase.GetAlbumInfoUseCaseImpl
 import com.wassim.showcase.features.albums.item.view.AlbumViewModel
@@ -33,6 +34,15 @@ val networkModule = module {
     }
     single {
         apiService(get())
+    }
+}
+
+val databaseModule = module {
+    single {
+        AlbumsDatabase.getInstance(get()).albumsDao()
+    }
+    single {
+        AlbumsDatabase.getInstance(get()).tagsDao()
     }
 }
 

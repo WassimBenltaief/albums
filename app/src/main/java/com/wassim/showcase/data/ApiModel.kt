@@ -29,7 +29,6 @@ data class Album(
     @field:SerializedName("wiki")
     val wiki: AlbumWiki? = null
 )
-
 data class TagsWrapper(
     @field:SerializedName("tag")
     val tags: List<AlbumTag>

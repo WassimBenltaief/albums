@@ -1,5 +1,7 @@
-package com.wassim.showcase.data
+package com.wassim.showcase.data.remote
 
+import com.wassim.showcase.data.GetAlbumInfoResponse
+import com.wassim.showcase.data.SearchAlbumResponse
 import retrofit2.http.POST
 import retrofit2.http.Query
 

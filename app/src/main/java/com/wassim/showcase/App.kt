@@ -2,6 +2,7 @@ package com.wassim.showcase
 
 import android.app.Application
 import com.wassim.showcase.di.appModule
+import com.wassim.showcase.di.databaseModule
 import com.wassim.showcase.di.imageLoader
 import com.wassim.showcase.di.networkModule
 import org.koin.android.ext.koin.androidContext
@@ -19,7 +20,8 @@ class App : Application() {
             modules(
                 appModule,
                 networkModule,
-                imageLoader
+                imageLoader,
+                databaseModule
             )
         }
         initTimber()

@@ -5,8 +5,8 @@ import com.wassim.showcase.features.albums.item.usecase.GetAlbumInfoUseCaseImpl
 import com.wassim.showcase.data.Album
 import com.wassim.showcase.data.GetAlbumInfoResponse
 import com.wassim.testutils.MainCoroutineRule
-import com.wassim.showcase.data.ApiService
-import com.wassim.testutils.stubOneAlbum
+import com.wassim.showcase.data.remote.ApiService
+import com.wassim.testutils.album
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -28,7 +28,7 @@ class GetAlbumInfoUseCaseTest {
     private val apiService: ApiService = mockk()
     private val albumId = "albumId"
     private val mockedSuccessResponse =
-        GetAlbumInfoResponse(stubOneAlbum(albumId))
+        GetAlbumInfoResponse(album(albumId))
 
     @Before
     fun setUp() {
