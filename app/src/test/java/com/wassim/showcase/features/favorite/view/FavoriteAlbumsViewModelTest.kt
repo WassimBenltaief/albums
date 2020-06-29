@@ -4,8 +4,6 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.wassim.showcase.R
 import com.wassim.showcase.features.albums.list.AlbumsUiState
-import com.wassim.showcase.features.albums.list.usecase.GetAlbumsUseCase
-import com.wassim.showcase.features.albums.list.view.AlbumListViewModel
 import com.wassim.showcase.features.favorite.usecase.GetAllFavoriteAlbumsUseCase
 import com.wassim.showcase.utils.Result
 import com.wassim.testutils.MainCoroutineRule

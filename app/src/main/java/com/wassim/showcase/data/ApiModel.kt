@@ -61,5 +61,3 @@ enum class ImageSize {
     @field:SerializedName("extralarge")
     EXTRA_LARGE,
 }
-
-

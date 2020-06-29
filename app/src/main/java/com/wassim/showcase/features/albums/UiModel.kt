@@ -1,6 +1,11 @@
 package com.wassim.showcase.features.albums
 
-import com.wassim.showcase.data.*
+import com.wassim.showcase.data.Album
+import com.wassim.showcase.data.AlbumCover
+import com.wassim.showcase.data.AlbumTag
+import com.wassim.showcase.data.AlbumWiki
+import com.wassim.showcase.data.ImageSize
+import com.wassim.showcase.data.TagsWrapper
 
 data class AlbumUiModel(
     val id: String = "",

@@ -1,7 +1,8 @@
 package com.wassim.showcase.features.albums.list.usecase
 
-import com.wassim.testutils.MainCoroutineRule
 import com.wassim.showcase.data.remote.ApiService
+import com.wassim.showcase.utils.Result
+import com.wassim.testutils.MainCoroutineRule
 import com.wassim.testutils.stubSearchResponse
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -10,7 +11,6 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import com.wassim.showcase.utils.Result
 
 class GetAlbumsUseCaseTest {
 
@@ -55,5 +55,4 @@ class GetAlbumsUseCaseTest {
         result as Result.Error
         assert(result.exception.message == errorMessage)
     }
-
 }

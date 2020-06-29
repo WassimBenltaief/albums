@@ -54,7 +54,6 @@ class AlbumsAdapter(
                 title.text = albumDomainModel.name
                 artist.text = albumDomainModel.artist
             }
-
         }
     }
 }

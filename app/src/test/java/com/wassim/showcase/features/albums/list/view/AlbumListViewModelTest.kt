@@ -2,19 +2,20 @@ package com.wassim.showcase.features.albums.list.view
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.wassim.testutils.MainCoroutineRule
 import com.wassim.showcase.R
 import com.wassim.showcase.features.albums.list.AlbumsUiState
 import com.wassim.showcase.features.albums.list.usecase.GetAlbumsUseCase
+import com.wassim.showcase.utils.Result
+import com.wassim.testutils.MainCoroutineRule
 import com.wassim.testutils.observeForTesting
 import com.wassim.testutils.stubSearchResponse
-import io.mockk.*
+import io.mockk.mockk
+import io.mockk.spyk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import com.wassim.showcase.utils.Result
 
 class AlbumListViewModelTest {
 
