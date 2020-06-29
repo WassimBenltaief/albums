@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.wassim.showcase.features.albums.item.SingleAlbumUiState
 import com.wassim.showcase.R
 import com.wassim.showcase.data.Album
+import com.wassim.showcase.features.albums.item.SingleAlbumUiState
 import com.wassim.showcase.features.albums.item.usecase.GetAlbumInfoUseCase
 import com.wassim.showcase.features.albums.item.usecase.SaveAlbumUseCase
 import com.wassim.showcase.features.albums.toUiModel

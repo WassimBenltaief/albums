@@ -7,14 +7,14 @@ import com.wassim.showcase.data.local.model.asAlbumEntity
 import com.wassim.showcase.data.local.model.asTagEntity
 import com.wassim.testutils.album
 import com.wassim.testutils.tag
-import junit.framework.Assert.assertEquals
+import java.io.IOException
 import kotlinx.coroutines.runBlocking
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import java.io.IOException
 
-class SimpleEntityReadWriteTest {
+class AlbumsDatabaseTest {
 
     private lateinit var albumsDao: AlbumsDao
     private lateinit var tagsDao: TagsDao

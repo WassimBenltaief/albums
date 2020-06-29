@@ -1,6 +1,10 @@
 package com.wassim.showcase.data.local.model
 
-import com.wassim.showcase.data.*
+import com.wassim.showcase.data.Album
+import com.wassim.showcase.data.AlbumCover
+import com.wassim.showcase.data.AlbumTag
+import com.wassim.showcase.data.AlbumWiki
+import com.wassim.showcase.data.ImageSize
 
 fun Album.asAlbumEntity() = AlbumEntity(
     remoteId = this.id,

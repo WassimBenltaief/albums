@@ -1,21 +1,19 @@
 package com.wassim.showcase.features.albums.item.usecase
 
-import com.wassim.showcase.features.albums.item.usecase.GetAlbumInfoUseCase
-import com.wassim.showcase.features.albums.item.usecase.GetAlbumInfoUseCaseImpl
 import com.wassim.showcase.data.Album
 import com.wassim.showcase.data.GetAlbumInfoResponse
-import com.wassim.testutils.MainCoroutineRule
 import com.wassim.showcase.data.remote.ApiService
+import com.wassim.showcase.utils.Result
+import com.wassim.testutils.MainCoroutineRule
 import com.wassim.testutils.album
 import io.mockk.coEvery
 import io.mockk.mockk
+import java.lang.Exception
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import java.lang.Exception
-import com.wassim.showcase.utils.Result
 
 class GetAlbumInfoUseCaseTest {
 
@@ -63,5 +61,4 @@ class GetAlbumInfoUseCaseTest {
         result as Result.Error
         assert(result.exception.message == message)
     }
-
 }

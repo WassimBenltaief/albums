@@ -7,7 +7,7 @@ import com.wassim.showcase.data.local.model.AlbumEntity
 import com.wassim.showcase.data.local.model.AlbumWithTags
 
 @Dao
-abstract class AlbumsDao: BaseDao<AlbumEntity> {
+abstract class AlbumsDao : BaseDao<AlbumEntity> {
 
     @Query("SELECT * FROM album")
     abstract suspend fun getAllAlbums(): List<AlbumEntity>
@@ -15,5 +15,4 @@ abstract class AlbumsDao: BaseDao<AlbumEntity> {
     @Transaction
     @Query("SELECT * FROM album")
     abstract suspend fun getAllAlbumsWithTags(): List<AlbumWithTags>
-
 }

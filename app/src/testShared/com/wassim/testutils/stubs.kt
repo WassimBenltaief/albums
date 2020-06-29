@@ -1,6 +1,13 @@
 package com.wassim.testutils
 
-import com.wassim.showcase.data.*
+import com.wassim.showcase.data.Album
+import com.wassim.showcase.data.AlbumCover
+import com.wassim.showcase.data.AlbumList
+import com.wassim.showcase.data.AlbumSearchWrapper
+import com.wassim.showcase.data.AlbumTag
+import com.wassim.showcase.data.AlbumWiki
+import com.wassim.showcase.data.ImageSize
+import com.wassim.showcase.data.SearchAlbumResponse
 
 fun stubSearchResponse(numberOfAlbums: Int = 10) = SearchAlbumResponse(
     results = AlbumSearchWrapper(

@@ -1,6 +1,10 @@
 package com.wassim.showcase.data.local.model
 
-import androidx.room.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.Index
+import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "tagEntity",
@@ -30,6 +34,5 @@ data class TagEntity(
         const val KEY_TAG_ID = "tag_id"
         const val KEY_NAME = "name"
         const val KEY_REFERENCE_ALBUM_ID = "ref_album_id"
-
     }
 }

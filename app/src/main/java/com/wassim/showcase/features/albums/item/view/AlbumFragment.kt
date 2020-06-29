@@ -11,18 +11,13 @@ import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
 import coil.request.LoadRequest
 import coil.transform.GrayscaleTransformation
-import com.google.android.material.animation.MotionSpec
 import com.google.android.material.chip.Chip
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import com.wassim.showcase.features.albums.item.SingleAlbumUiState
-import com.wassim.showcase.features.albums.AlbumUiModel
 import com.wassim.showcase.R
+import com.wassim.showcase.features.albums.AlbumUiModel
+import com.wassim.showcase.features.albums.item.SingleAlbumUiState
 import kotlinx.android.synthetic.main.album_fragment.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 

@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: "kotlin-kapt"
 
+apply from: "../ktlint.gradle"
 apply from: '../test_dependencies.gradle'
 apply from: '../libraries_dependencies.gradle'
 
