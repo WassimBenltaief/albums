@@ -10,12 +10,12 @@ import com.wassim.showcase.utils.Result
 import com.wassim.testutils.MainCoroutineRule
 import com.wassim.testutils.album
 import com.wassim.testutils.observeForTesting
+import io.mockk.CapturingSlot
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import io.mockk.spyk
-import io.mockk.CapturingSlot
 import io.mockk.slot
+import io.mockk.spyk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.Rule
