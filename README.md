@@ -4,4 +4,4 @@
 
 # albums
 A sample project demonstrating android best practices: 
-Kotlin, Coroutines, Clean Architecture, Navigation, Lifecycle, DI, Material Theming, Tests..
+Kotlin, Coroutines, Clean Architecture, Navigation, Lifecycle, DI, Material Theming, Tests, CI (Github Actions)..
