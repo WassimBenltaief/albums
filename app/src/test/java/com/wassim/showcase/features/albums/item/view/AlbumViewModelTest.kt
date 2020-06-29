@@ -10,9 +10,9 @@ import com.wassim.showcase.utils.Result
 import com.wassim.testutils.MainCoroutineRule
 import com.wassim.testutils.album
 import com.wassim.testutils.observeForTesting
-import io.mockk.mockk
-import io.mockk.spyk
+import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.runBlocking
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
@@ -36,7 +36,7 @@ class AlbumViewModelTest {
     private val uiStateObserver: Observer<SingleAlbumUiState> = spyk()
 
     @Test
-    fun `find album returns success`() {
+    fun `find album returns success`() = runBlocking {
         // mock
         coEvery {
             getAlbumInfoUseCase(any(), any(), any())
@@ -59,7 +59,7 @@ class AlbumViewModelTest {
     }
 
     @Test
-    fun `find album returns error`() {
+    fun `find album returns error`() = runBlocking {
         // mock
         val exception = Exception("unable to load album")
         coEvery {
@@ -83,7 +83,7 @@ class AlbumViewModelTest {
     }
 
     @Test
-    fun `save album returns success`() {
+    fun `save album returns success`() = runBlocking {
         // supposing get album returned success
         coEvery {
             getAlbumInfoUseCase(any(), any(), any())
@@ -113,7 +113,7 @@ class AlbumViewModelTest {
     }
 
     @Test
-    fun `save album returns error`() {
+    fun `save album returns error`() = runBlocking {
         // supposing get album returned error
         coEvery {
             getAlbumInfoUseCase(any(), any(), any())

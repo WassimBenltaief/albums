@@ -9,6 +9,8 @@ import com.wassim.showcase.utils.Result
 import com.wassim.testutils.MainCoroutineRule
 import com.wassim.testutils.observeForTesting
 import com.wassim.testutils.stubSearchResponse
+import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.spyk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
