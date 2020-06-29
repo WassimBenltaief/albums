@@ -1,4 +1,4 @@
-package com.wassim.showcase.view.list.view
+package com.wassim.showcase.features.albums.list.view
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
@@ -6,7 +6,6 @@ import com.wassim.testutils.MainCoroutineRule
 import com.wassim.showcase.R
 import com.wassim.showcase.features.albums.list.AlbumsUiState
 import com.wassim.showcase.features.albums.list.usecase.GetAlbumsUseCase
-import com.wassim.showcase.features.albums.list.view.AlbumListViewModel
 import com.wassim.testutils.observeForTesting
 import com.wassim.testutils.stubSearchResponse
 import io.mockk.*
@@ -37,7 +36,7 @@ class AlbumListViewModelTest {
         // mock
         coEvery {
             getAlbumsUseCase()
-        } returns com.wassim.showcase.utils.Result.Success(mockedSuccessResponse)
+        } returns Result.Success(mockedSuccessResponse)
 
         // observe
         viewModel =

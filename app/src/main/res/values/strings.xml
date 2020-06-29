@@ -5,4 +5,6 @@
     <string name="generic_single_album_error">Unable to load album details</string>
     <string name="album">Album</string>
     <string name="title_albums">Albums</string>
+    <string name="marked_as_favorite">Marked as favorite</string>
+    <string name="unable_to_mark_album_as_favorite">Unable to mark album as favorite</string>
 </resources>

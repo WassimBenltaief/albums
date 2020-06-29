@@ -4,6 +4,8 @@ import coil.ImageLoader
 import com.wassim.showcase.data.local.AlbumsDatabase
 import com.wassim.showcase.features.albums.item.usecase.GetAlbumInfoUseCase
 import com.wassim.showcase.features.albums.item.usecase.GetAlbumInfoUseCaseImpl
+import com.wassim.showcase.features.albums.item.usecase.SaveAlbumUseCase
+import com.wassim.showcase.features.albums.item.usecase.SaveAlbumUseCaseImpl
 import com.wassim.showcase.features.albums.item.view.AlbumViewModel
 import com.wassim.showcase.features.albums.list.usecase.GetAlbumsUseCase
 import com.wassim.showcase.features.albums.list.usecase.GetAlbumsUseCaseImpl
@@ -18,13 +20,16 @@ val appModule = module {
         AlbumListViewModel(get())
     }
     viewModel {
-        AlbumViewModel(get())
+        AlbumViewModel(get(), get())
     }
     factory<GetAlbumsUseCase> {
         GetAlbumsUseCaseImpl(get())
     }
     factory<GetAlbumInfoUseCase> {
         GetAlbumInfoUseCaseImpl(get())
+    }
+    factory<SaveAlbumUseCase> {
+        SaveAlbumUseCaseImpl(get(), get())
     }
 }
 
