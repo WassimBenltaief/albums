@@ -1,6 +1,7 @@
 package com.wassim.showcase
 
 import androidx.test.rule.ActivityTestRule
+import com.wassim.showcase.features.MainActivity
 import org.junit.Rule
 import org.junit.Test
 

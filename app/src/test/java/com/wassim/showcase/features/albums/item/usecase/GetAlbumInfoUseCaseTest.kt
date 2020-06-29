@@ -1,4 +1,4 @@
-package com.wassim.showcase.view.item.usecase
+package com.wassim.showcase.features.albums.item.usecase
 
 import com.wassim.showcase.features.albums.item.usecase.GetAlbumInfoUseCase
 import com.wassim.showcase.features.albums.item.usecase.GetAlbumInfoUseCaseImpl

@@ -7,8 +7,7 @@
 
     <fragment
         android:id="@+id/album_list_dest"
-        android:name="com.showcase.albums.view.list.view.AlbumListFragment"
-        android:label="AlbumListFragment"
+        android:name="com.wassim.showcase.features.albums.list.view.AlbumListFragment"
         tools:layout="@layout/albumlist_fragment">
         <action
             android:id="@+id/action_next"
@@ -20,7 +19,7 @@
 
     <fragment
         android:id="@+id/album_dest"
-        android:name="com.showcase.albums.view.item.view.AlbumFragment"
+        android:name="com.wassim.showcase.features.albums.item.view.AlbumFragment"
         android:label="AlbumFragment">
 
         <argument
@@ -37,6 +36,5 @@
 
     <fragment
         android:id="@+id/profile_dest"
-        android:name="com.showcase.features.profile.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:name="com.wassim.showcase.features.profile.ProfileFragment" />
 </navigation>

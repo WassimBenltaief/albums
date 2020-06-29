@@ -8,7 +8,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.ImageLoader
 import com.google.android.material.snackbar.Snackbar
-import com.showcase.albums.view.list.view.AlbumListFragmentDirections
 import com.wassim.showcase.R
 import com.wassim.showcase.features.albums.AlbumUiModel
 import com.wassim.showcase.features.albums.list.AlbumsUiState

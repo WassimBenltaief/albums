@@ -2,6 +2,7 @@ package com.wassim.showcase.features.albums.item.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -10,13 +11,18 @@ import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
 import coil.request.LoadRequest
 import coil.transform.GrayscaleTransformation
+import com.google.android.material.animation.MotionSpec
 import com.google.android.material.chip.Chip
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.wassim.showcase.features.albums.item.SingleAlbumUiState
 import com.wassim.showcase.features.albums.AlbumUiModel
-import com.showcase.albums.view.item.view.AlbumFragmentArgs
 import com.wassim.showcase.R
 import kotlinx.android.synthetic.main.album_fragment.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -64,34 +70,36 @@ class AlbumFragment : Fragment(R.layout.album_fragment) {
             }
         )
 
+        fab.setOnClickListener {
+            markAsFavorite()
+            hideAppBarFab(fab)
+        }
+
         toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
+    }
 
-        fab.setOnClickListener {
-            Snackbar.make(
-                requireActivity().findViewById(android.R.id.content),
-                "Album marked as favorite",
-                Snackbar.LENGTH_SHORT
-            ).show()
-            markAsFavorite()
-        }
+    private fun hideAppBarFab(fab: FloatingActionButton) {
+        val params = fab.layoutParams as CoordinatorLayout.LayoutParams
+        val behavior = params.behavior as FloatingActionButton.Behavior
+        behavior.isAutoHideEnabled = false
+        fab.hide()
     }
 
     private fun markAsFavorite() {
-        // trigger viewModel to select album as favorite
-        // update UI with hidden Fab.
+        albumViewModel.markAsFavorite()
     }
 
     private fun updateUI(uiState: SingleAlbumUiState) {
         when (uiState) {
             is SingleAlbumUiState.Content -> renderContent(uiState.album)
-            is SingleAlbumUiState.Error -> renderError(uiState.resId)
+            is SingleAlbumUiState.SnackBar -> renderSnackBar(uiState.resId)
             SingleAlbumUiState.Loading -> Unit
         }
     }
 
-    private fun renderError(errorResourceId: Int) {
+    private fun renderSnackBar(errorResourceId: Int) {
         Snackbar.make(
             requireActivity().findViewById(android.R.id.content),
             requireContext().getString(errorResourceId),
@@ -116,6 +124,7 @@ class AlbumFragment : Fragment(R.layout.album_fragment) {
         }
         bandName.text = album.artist
         albumDescription.text = album.wiki
+
         fab.visibility = View.VISIBLE
 
         album.tags?.forEach { tag ->
