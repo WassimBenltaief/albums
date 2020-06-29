@@ -2,6 +2,7 @@ package com.wassim.showcase.data.local
 
 import androidx.room.Dao
 import androidx.room.Query
+import com.wassim.showcase.data.local.model.TagEntity
 
 @Dao
 abstract class TagsDao : BaseDao<TagEntity> {

@@ -3,6 +3,8 @@ package com.wassim.showcase.data.local
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
+import com.wassim.showcase.data.local.model.asAlbumEntity
+import com.wassim.showcase.data.local.model.asTagEntity
 import com.wassim.testutils.album
 import com.wassim.testutils.tag
 import junit.framework.Assert.assertEquals
@@ -40,7 +42,7 @@ class SimpleEntityReadWriteTest {
         val albumEntity = album("one").asAlbumEntity()
         val albumId = albumsDao.insert(albumEntity)
 
-        val tags = (0..9).map { tag(it.toString()).asTagEntity() }
+        val tags = (1..10).map { tag(it.toString()).asTagEntity() }
         tagsDao.insertTagsForAlbum(tags, albumId)
 
         val insertedAlbum = albumsDao.getAllAlbums()
@@ -50,7 +52,22 @@ class SimpleEntityReadWriteTest {
 
         val insertedTags = tagsDao.findTagsForAlbum(albumId)
         assertEquals(10, insertedTags.size)
-        assertEquals("tag 9", insertedTags[9].name)
-        assertEquals(albumId, insertedTags[9].refAlbumId)
+        assertEquals("tag 10", insertedTags.last().name)
+        assertEquals(albumId, insertedTags.last().refAlbumId)
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun insert_and_select_album_with_tags_model() = runBlocking {
+        val albumEntity = album("one").asAlbumEntity()
+        val albumId = albumsDao.insert(albumEntity)
+
+        val tags = (1..10).map { tag(it.toString()).asTagEntity() }
+        tagsDao.insertTagsForAlbum(tags, albumId)
+
+        val insertedAlbums = albumsDao.getAllAlbumsWithTags()
+        assertEquals(1, insertedAlbums.size)
+        assertEquals(10, insertedAlbums.first().tags.size)
+        assertEquals("tag 10", insertedAlbums.first().tags.last().name)
     }
 }

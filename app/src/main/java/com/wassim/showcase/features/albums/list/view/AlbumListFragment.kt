@@ -73,8 +73,8 @@ class AlbumListFragment : Fragment(R.layout.albumlist_fragment) {
             is AlbumsUiState.Error -> {
                 progressBar.visibility = View.GONE
                 recycler.visibility = View.GONE
-                Timber.d("error")
 
+                Timber.e(requireContext().getString(albumsUiState.resId))
                 Snackbar.make(
                     requireActivity().findViewById(android.R.id.content),
                     requireContext().getString(albumsUiState.resId),

@@ -2,10 +2,10 @@ package com.wassim.testutils
 
 import com.wassim.showcase.data.*
 
-fun stubSearchResponse() = SearchAlbumResponse(
+fun stubSearchResponse(numberOfAlbums: Int = 10) = SearchAlbumResponse(
     results = AlbumSearchWrapper(
         albumMatches = AlbumList(
-            albums = (1..10).map {
+            albums = (1..numberOfAlbums).map {
                 album(it.toString())
             }
         )
