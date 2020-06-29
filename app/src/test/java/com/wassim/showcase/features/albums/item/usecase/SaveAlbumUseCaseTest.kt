@@ -2,7 +2,7 @@ package com.wassim.showcase.features.albums.item.usecase
 
 import com.wassim.showcase.data.local.AlbumsDao
 import com.wassim.showcase.data.local.TagsDao
-import com.wassim.showcase.data.local.asAlbumEntity
+import com.wassim.showcase.data.local.model.asAlbumEntity
 import com.wassim.showcase.utils.Result
 import com.wassim.testutils.MainCoroutineRule
 import com.wassim.testutils.album

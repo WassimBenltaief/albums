@@ -7,4 +7,8 @@
     <string name="title_albums">Albums</string>
     <string name="marked_as_favorite">Marked as favorite</string>
     <string name="unable_to_mark_album_as_favorite">Unable to mark album as favorite</string>
+    <string name="saved_albums_count">%d saved albums</string>
+    <string name="albums">Albums</string>
+    <string name="favorite">Favorite</string>
+    <string name="profile">Profile</string>
 </resources>

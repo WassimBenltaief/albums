@@ -14,5 +14,4 @@ class MainActivityTest {
     @Test
     fun numberOne() {
     }
-
 }

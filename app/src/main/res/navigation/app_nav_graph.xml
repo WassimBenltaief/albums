@@ -3,18 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_nav_graph.xml"
-    app:startDestination="@id/album_list_dest">
+    app:startDestination="@id/album_list_dest"
+    tools:ignore="UnusedNavigation">
 
     <fragment
         android:id="@+id/album_list_dest"
         android:name="com.wassim.showcase.features.albums.list.view.AlbumListFragment"
+        android:label="AlbumListFragment"
         tools:layout="@layout/albumlist_fragment">
         <action
             android:id="@+id/action_next"
             app:destination="@id/album_dest"
             app:enterAnim="@anim/fade_in"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fragment_fade_exit"/>
+            app:popExitAnim="@anim/fragment_fade_exit" />
     </fragment>
 
     <fragment
@@ -36,5 +38,12 @@
 
     <fragment
         android:id="@+id/profile_dest"
-        android:name="com.wassim.showcase.features.profile.ProfileFragment" />
+        android:name="com.wassim.showcase.features.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+
+    <fragment
+        android:id="@+id/favorite_dest"
+        android:name="com.wassim.showcase.features.favorite.view.FavoriteAlbumsFragment"
+        android:label="FavoriteAlbumsFragment" />
+
 </navigation>

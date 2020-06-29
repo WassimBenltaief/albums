@@ -10,6 +10,9 @@ import com.wassim.showcase.features.albums.item.view.AlbumViewModel
 import com.wassim.showcase.features.albums.list.usecase.GetAlbumsUseCase
 import com.wassim.showcase.features.albums.list.usecase.GetAlbumsUseCaseImpl
 import com.wassim.showcase.features.albums.list.view.AlbumListViewModel
+import com.wassim.showcase.features.favorite.usecase.GetAllFavoriteAlbumsUseCase
+import com.wassim.showcase.features.favorite.usecase.GetAllFavoriteAlbumsUseCaseImpl
+import com.wassim.showcase.features.favorite.view.FavoriteAlbumsViewModel
 import com.wassim.showcase.utils.apiService
 import com.wassim.showcase.utils.okHttpClient
 import org.koin.android.viewmodel.dsl.viewModel
@@ -22,6 +25,9 @@ val appModule = module {
     viewModel {
         AlbumViewModel(get(), get())
     }
+    viewModel {
+        FavoriteAlbumsViewModel(get())
+    }
     factory<GetAlbumsUseCase> {
         GetAlbumsUseCaseImpl(get())
     }
@@ -30,6 +36,9 @@ val appModule = module {
     }
     factory<SaveAlbumUseCase> {
         SaveAlbumUseCaseImpl(get(), get())
+    }
+    factory<GetAllFavoriteAlbumsUseCase> {
+        GetAllFavoriteAlbumsUseCaseImpl(get())
     }
 }
 

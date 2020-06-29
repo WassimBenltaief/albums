@@ -3,8 +3,8 @@ package com.wassim.showcase.features.albums.item.usecase
 import com.wassim.showcase.data.Album
 import com.wassim.showcase.data.local.AlbumsDao
 import com.wassim.showcase.data.local.TagsDao
-import com.wassim.showcase.data.local.asAlbumEntity
-import com.wassim.showcase.data.local.asTagEntity
+import com.wassim.showcase.data.local.model.asAlbumEntity
+import com.wassim.showcase.data.local.model.asTagEntity
 import com.wassim.showcase.utils.safeApiCall
 import kotlinx.coroutines.Dispatchers
 

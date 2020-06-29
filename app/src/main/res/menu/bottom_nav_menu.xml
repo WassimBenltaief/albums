@@ -3,9 +3,13 @@
     <item
         android:id="@id/album_list_dest"
         android:icon="@drawable/ic_album_list"
-        android:title="Albums" />
+        android:title="@string/albums" />
+    <item
+        android:id="@id/favorite_dest"
+        android:icon="@drawable/ic_heart"
+        android:title="@string/favorite" />
     <item
         android:id="@id/profile_dest"
         android:icon="@drawable/ic_profile"
-        android:title="Profile" />
+        android:title="@string/profile" />
 </menu>
