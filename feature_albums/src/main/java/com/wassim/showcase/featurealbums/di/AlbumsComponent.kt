@@ -5,7 +5,10 @@ import com.wassim.showcase.featurealbums.view.list.view.AlbumListFragment
 import com.wassim.showcase.di.DynamicFeaturesDependencies
 import dagger.Component
 
-@Component(modules = [AlbumsModule::class], dependencies = [DynamicFeaturesDependencies::class])
+@Component(
+    modules = [UseCasesModule::class, ViewModelsModule::class],
+    dependencies = [DynamicFeaturesDependencies::class]
+)
 interface AlbumsComponent {
 
     fun inject(fragment: AlbumListFragment)

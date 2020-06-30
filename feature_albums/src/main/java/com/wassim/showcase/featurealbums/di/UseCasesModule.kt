@@ -1,5 +1,6 @@
 package com.wassim.showcase.featurealbums.di
 
+import androidx.lifecycle.ViewModelProvider
 import com.wassim.showcase.featurealbums.view.item.usecase.GetAlbumInfoUseCase
 import com.wassim.showcase.featurealbums.view.item.usecase.GetAlbumInfoUseCaseImpl
 import com.wassim.showcase.featurealbums.view.item.usecase.SaveAlbumUseCase
@@ -9,11 +10,16 @@ import com.wassim.showcase.featurealbums.view.list.usecase.GetAlbumsUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.components.ActivityComponent
 
 @Module
-@InstallIn(ApplicationComponent::class)
-abstract class AlbumsModule {
+@InstallIn(ActivityComponent::class)
+abstract class UseCasesModule {
+
+    @Binds
+    internal abstract fun bindViewModelFactory(
+        factory: ViewModelFactory
+    ): ViewModelProvider.Factory
 
     @Binds
     abstract fun providesGetAlbumsUseCase(

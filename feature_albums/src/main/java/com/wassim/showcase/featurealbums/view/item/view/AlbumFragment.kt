@@ -5,7 +5,6 @@ import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -28,12 +27,18 @@ class AlbumFragment : Fragment(R.layout.album_fragment) {
 
     @Inject
     lateinit var imageLoader: ImageLoader
+
+    @Inject
+    lateinit var albumViewModel: AlbumViewModel
+
     private val args: AlbumFragmentArgs by navArgs()
-    private val albumViewModel: AlbumViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         DaggerAlbumsComponent.factory().create(
-            EntryPointAccessors.fromApplication(requireContext(), DynamicFeaturesDependencies::class.java)
+            EntryPointAccessors.fromApplication(
+                requireContext(),
+                DynamicFeaturesDependencies::class.java
+            )
         ).inject(this)
         super.onCreate(savedInstanceState)
     }

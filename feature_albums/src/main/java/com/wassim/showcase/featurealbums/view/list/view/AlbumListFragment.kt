@@ -3,7 +3,6 @@ package com.wassim.showcase.featurealbums.view.list.view
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,8 +23,8 @@ class AlbumListFragment : Fragment(R.layout.albumlist_fragment) {
     @Inject
     lateinit var imageLoader: ImageLoader
 
-//    @Inject
-//    lateinit var albumListViewModel: AlbumListViewModel
+    @Inject
+    lateinit var albumListViewModel: AlbumListViewModel
 
     private lateinit var albumsAdapter: AlbumsAdapter
 
@@ -42,7 +41,7 @@ class AlbumListFragment : Fragment(R.layout.albumlist_fragment) {
 
         // then run onCreate logic
         super.onCreate(savedInstanceState)
-        //albumListViewModel.loadAlbums()
+        albumListViewModel.loadAlbums()
         Timber.d("loadAlbums called")
     }
 
@@ -58,9 +57,9 @@ class AlbumListFragment : Fragment(R.layout.albumlist_fragment) {
             layoutManager = LinearLayoutManager(context)
         }
 
-//        albumListViewModel.uiState.observe(viewLifecycleOwner, Observer {
-//            updateUI(it)
-//        })
+        albumListViewModel.uiState.observe(viewLifecycleOwner, Observer {
+            updateUI(it)
+        })
     }
 
     private fun openAlbumDetails(album: AlbumUiModel) {
