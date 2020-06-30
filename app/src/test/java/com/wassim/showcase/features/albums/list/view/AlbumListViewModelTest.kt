@@ -3,11 +3,10 @@ package com.wassim.showcase.features.albums.list.view
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.wassim.showcase.R
-import com.wassim.showcase.features.albums.list.AlbumsUiState
-import com.wassim.showcase.features.albums.list.usecase.GetAlbumsUseCase
+import com.wassim.albums.view.list.AlbumsUiState
+import com.wassim.albums.view.list.usecase.GetAlbumsUseCase
 import com.wassim.showcase.utils.Result
 import com.wassim.testutils.MainCoroutineRule
-import com.wassim.testutils.observeForTesting
 import com.wassim.testutils.stubSearchResponse
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -28,11 +27,11 @@ class AlbumListViewModelTest {
     @get:Rule
     val testInstantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
 
-    lateinit var viewModel: AlbumListViewModel
+    lateinit var viewModel: com.wassim.albums.view.list.view.AlbumListViewModel
 
-    private val getAlbumsUseCase: GetAlbumsUseCase = mockk()
+    private val getAlbumsUseCase: com.wassim.albums.view.list.usecase.GetAlbumsUseCase = mockk()
     private val mockedSuccessResponse = stubSearchResponse().albums()
-    private val uiStateObserver: Observer<AlbumsUiState> = spyk()
+    private val uiStateObserver: Observer<com.wassim.albums.view.list.AlbumsUiState> = spyk()
 
     @Test
     fun `search albums success returns uiState content`() = runBlocking {
@@ -43,19 +42,19 @@ class AlbumListViewModelTest {
 
         // observe
         viewModel =
-            AlbumListViewModel(
+            com.wassim.albums.view.list.view.AlbumListViewModel(
                 getAlbumsUseCase
             )
         viewModel.uiState.observeForTesting(uiStateObserver) {
             viewModel.loadAlbums()
             // verify
-            val list: MutableList<AlbumsUiState> = mutableListOf()
+            val list: MutableList<com.wassim.albums.view.list.AlbumsUiState> = mutableListOf()
             coVerify(exactly = 1) { getAlbumsUseCase() }
             coVerify(exactly = 2) { it.onChanged(capture(list)) }
             // assert
-            assert(list.first() is AlbumsUiState.Loading)
-            assert(list[1] is AlbumsUiState.Content)
-            val secondEmission = list[1] as AlbumsUiState.Content
+            assert(list.first() is com.wassim.albums.view.list.AlbumsUiState.Loading)
+            assert(list[1] is com.wassim.albums.view.list.AlbumsUiState.Content)
+            val secondEmission = list[1] as com.wassim.albums.view.list.AlbumsUiState.Content
             assert(secondEmission.list.size == 10)
         }
     }
@@ -70,19 +69,19 @@ class AlbumListViewModelTest {
 
         // observe
         viewModel =
-            AlbumListViewModel(
+            com.wassim.albums.view.list.view.AlbumListViewModel(
                 getAlbumsUseCase
             )
         viewModel.uiState.observeForTesting(uiStateObserver) {
             viewModel.loadAlbums()
             // verify
-            val list: MutableList<AlbumsUiState> = mutableListOf()
+            val list: MutableList<com.wassim.albums.view.list.AlbumsUiState> = mutableListOf()
             coVerify(exactly = 1) { getAlbumsUseCase() }
             coVerify(exactly = 2) { it.onChanged(capture(list)) }
             // assert
-            assert(list.first() is AlbumsUiState.Loading)
-            assert(list[1] is AlbumsUiState.Error)
-            val secondEmission = list[1] as AlbumsUiState.Error
+            assert(list.first() is com.wassim.albums.view.list.AlbumsUiState.Loading)
+            assert(list[1] is com.wassim.albums.view.list.AlbumsUiState.Error)
+            val secondEmission = list[1] as com.wassim.albums.view.list.AlbumsUiState.Error
             assert(secondEmission.resId == R.string.generic_albums_error)
         }
     }

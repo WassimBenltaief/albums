@@ -10,8 +10,10 @@ import androidx.navigation.plusAssign
 import androidx.navigation.ui.setupWithNavController
 import com.wassim.showcase.R
 import com.wassim.showcase.utils.KeepStateNavigator
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,17 +33,6 @@ class MainActivity : AppCompatActivity() {
             )
             navigatorProvider += navigator
             setGraph(R.navigation.app_nav_graph)
-
-            addOnDestinationChangedListener { _, destination, _ ->
-                switchBottomNavVisibility(destination)
-            }
         }
     }
-
-    private fun switchBottomNavVisibility(destination: NavDestination) =
-        if (destination.id.toString() == R.id.album_dest.toString()) {
-            bottomNavigationView.visibility = View.GONE
-        } else {
-            bottomNavigationView.visibility = View.VISIBLE
-        }
 }

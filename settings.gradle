@@ -1,2 +1,3 @@
+include ':feature_albums'
 include ':app'
 rootProject.name = "Albums Showcase"

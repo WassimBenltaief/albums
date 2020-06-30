@@ -2,39 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/app_nav_graph.xml"
-    app:startDestination="@id/album_list_dest"
+    android:id="@+id/appNavGraph"
+    app:startDestination="@id/AlbumNavGraph"
     tools:ignore="UnusedNavigation">
 
-    <fragment
-        android:id="@+id/album_list_dest"
-        android:name="com.wassim.showcase.features.albums.list.view.AlbumListFragment"
-        android:label="AlbumListFragment"
-        tools:layout="@layout/albumlist_fragment">
-        <action
-            android:id="@+id/action_next"
-            app:destination="@id/album_dest"
-            app:enterAnim="@anim/fade_in"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fragment_fade_exit" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/album_dest"
-        android:name="com.wassim.showcase.features.albums.item.view.AlbumFragment"
-        android:label="AlbumFragment">
-
-        <argument
-            android:name="albumId"
-            app:argType="string" />
-        <argument
-            android:name="album"
-            app:argType="string" />
-        <argument
-            android:name="artist"
-            app:argType="string" />
-
-    </fragment>
+    <include-dynamic
+        android:id="@+id/AlbumNavGraph"
+        app:graphResName="nav_graph"
+        app:moduleName="feature_albums" />
 
     <fragment
         android:id="@+id/profile_dest"

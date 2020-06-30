@@ -20,7 +20,7 @@ class SaveAlbumUseCaseTest {
     @get:Rule
     var coroutinesTestRule = MainCoroutineRule()
 
-    lateinit var saveAlbumUseCase: SaveAlbumUseCase
+    lateinit var saveAlbumUseCase: com.wassim.albums.view.item.usecase.SaveAlbumUseCase
     private val albumsDao: AlbumsDao = mockk()
     private val tagsDao: TagsDao = mockk()
     private val albumId: Long = 10
@@ -28,7 +28,11 @@ class SaveAlbumUseCaseTest {
 
     @Before
     fun setUp() {
-        saveAlbumUseCase = SaveAlbumUseCaseImpl(albumsDao, tagsDao)
+        saveAlbumUseCase =
+            com.wassim.albums.view.item.usecase.SaveAlbumUseCaseImpl(
+                albumsDao,
+                tagsDao
+            )
     }
 
     @Test

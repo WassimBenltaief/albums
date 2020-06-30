@@ -3,7 +3,7 @@ package com.wassim.showcase.features.favorite.view
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.wassim.showcase.R
-import com.wassim.showcase.features.albums.list.AlbumsUiState
+import com.wassim.albums.view.list.AlbumsUiState
 import com.wassim.showcase.features.favorite.usecase.GetAllFavoriteAlbumsUseCase
 import com.wassim.showcase.utils.Result
 import com.wassim.testutils.MainCoroutineRule
@@ -32,7 +32,7 @@ class FavoriteAlbumsViewModelTest {
 
     private val getAllFavoriteAlbumsUseCase: GetAllFavoriteAlbumsUseCase = mockk()
     private val mockedSuccessResponse = stubSearchResponse(10).albums()
-    private val uiStateObserver: Observer<AlbumsUiState> = spyk()
+    private val uiStateObserver: Observer<com.wassim.albums.view.list.AlbumsUiState> = spyk()
 
     @Test
     fun `when get all favorite albums then returns success`() = runBlocking {
@@ -46,13 +46,13 @@ class FavoriteAlbumsViewModelTest {
         viewModel.uiState.observeForTesting(uiStateObserver) {
             viewModel.loadFavoriteAlbums()
             // verify
-            val list: MutableList<AlbumsUiState> = mutableListOf()
+            val list: MutableList<com.wassim.albums.view.list.AlbumsUiState> = mutableListOf()
             coVerify(exactly = 1) { getAllFavoriteAlbumsUseCase() }
             coVerify(exactly = 2) { it.onChanged(capture(list)) }
             // assert
-            assert(list.first() is AlbumsUiState.Loading)
-            assert(list[1] is AlbumsUiState.Content)
-            val secondEmission = list[1] as AlbumsUiState.Content
+            assert(list.first() is com.wassim.albums.view.list.AlbumsUiState.Loading)
+            assert(list[1] is com.wassim.albums.view.list.AlbumsUiState.Content)
+            val secondEmission = list[1] as com.wassim.albums.view.list.AlbumsUiState.Content
             assert(secondEmission.list.size == 10)
         }
     }
@@ -70,13 +70,13 @@ class FavoriteAlbumsViewModelTest {
         viewModel.uiState.observeForTesting(uiStateObserver) {
             viewModel.loadFavoriteAlbums()
             // verify
-            val list: MutableList<AlbumsUiState> = mutableListOf()
+            val list: MutableList<com.wassim.albums.view.list.AlbumsUiState> = mutableListOf()
             coVerify(exactly = 1) { getAllFavoriteAlbumsUseCase() }
             coVerify(exactly = 2) { it.onChanged(capture(list)) }
             // assert
-            assert(list.first() is AlbumsUiState.Loading)
-            assert(list[1] is AlbumsUiState.Error)
-            val secondEmission = list[1] as AlbumsUiState.Error
+            assert(list.first() is com.wassim.albums.view.list.AlbumsUiState.Loading)
+            assert(list[1] is com.wassim.albums.view.list.AlbumsUiState.Error)
+            val secondEmission = list[1] as com.wassim.albums.view.list.AlbumsUiState.Error
             assert(secondEmission.resId == R.string.generic_albums_error)
         }
     }

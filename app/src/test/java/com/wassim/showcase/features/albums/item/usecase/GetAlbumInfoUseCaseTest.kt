@@ -21,7 +21,7 @@ class GetAlbumInfoUseCaseTest {
     @get:Rule
     var coroutinesTestRule = MainCoroutineRule()
 
-    lateinit var getAlbumInfoUseCase: GetAlbumInfoUseCase
+    lateinit var getAlbumInfoUseCase: com.wassim.albums.view.item.usecase.GetAlbumInfoUseCase
 
     private val apiService: ApiService = mockk()
     private val albumId = "albumId"
@@ -31,7 +31,7 @@ class GetAlbumInfoUseCaseTest {
     @Before
     fun setUp() {
         getAlbumInfoUseCase =
-            GetAlbumInfoUseCaseImpl(
+            com.wassim.albums.view.item.usecase.GetAlbumInfoUseCaseImpl(
                 apiService
             )
     }

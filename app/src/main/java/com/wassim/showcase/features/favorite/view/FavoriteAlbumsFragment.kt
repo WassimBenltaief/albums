@@ -3,17 +3,19 @@ package com.wassim.showcase.features.favorite.view
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import com.wassim.showcase.R
-import com.wassim.showcase.features.albums.list.AlbumsUiState
+import com.wassim.showcase.features.favorite.FavoriteAlbumsUiState
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.profile_favorite_albums.*
-import org.koin.android.ext.android.inject
 import timber.log.Timber
 
+@AndroidEntryPoint
 class FavoriteAlbumsFragment : Fragment(R.layout.profile_favorite_albums) {
 
-    private val viewModel: FavoriteAlbumsViewModel by inject()
+    private val viewModel: FavoriteAlbumsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,15 +29,15 @@ class FavoriteAlbumsFragment : Fragment(R.layout.profile_favorite_albums) {
         })
     }
 
-    private fun updateUi(uiState: AlbumsUiState) {
+    private fun updateUi(uiState: FavoriteAlbumsUiState) {
         when (uiState) {
-            is AlbumsUiState.Content -> {
+            is FavoriteAlbumsUiState.Content -> {
                 favoriteAlbumsCount.text = requireContext().getString(
                     R.string.saved_albums_count,
-                    uiState.list.size
+                    uiState.data.count
                 )
             }
-            is AlbumsUiState.Error -> {
+            is FavoriteAlbumsUiState.Error -> {
                 Timber.e(requireContext().getString(uiState.resId))
                 Snackbar.make(
                     requireActivity().findViewById(android.R.id.content),
@@ -43,7 +45,7 @@ class FavoriteAlbumsFragment : Fragment(R.layout.profile_favorite_albums) {
                     Snackbar.LENGTH_SHORT
                 ).show()
             }
-            AlbumsUiState.Loading -> Unit
+            FavoriteAlbumsUiState.Loading -> Unit
         }
     }
 }
