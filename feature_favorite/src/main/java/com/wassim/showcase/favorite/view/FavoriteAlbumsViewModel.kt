@@ -1,18 +1,18 @@
-package com.wassim.showcase.features.favorite.view
+package com.wassim.showcase.favorite.view
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.wassim.showcase.R
-import com.wassim.showcase.features.favorite.FavoriteAlbumsUiModel
-import com.wassim.showcase.features.favorite.FavoriteAlbumsUiState
-import com.wassim.showcase.features.favorite.usecase.GetAllFavoriteAlbumsUseCase
+import com.wassim.showcase.favorite.FavoriteAlbumsUiModel
+import com.wassim.showcase.favorite.FavoriteAlbumsUiState
+import com.wassim.showcase.favorite.usecase.GetAllFavoriteAlbumsUseCase
 import com.wassim.showcase.utils.Result
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FavoriteAlbumsViewModel @ViewModelInject constructor(
+class FavoriteAlbumsViewModel @Inject constructor(
     val getAllFavoriteAlbums: GetAllFavoriteAlbumsUseCase
 ) : ViewModel() {
 
@@ -27,7 +27,9 @@ class FavoriteAlbumsViewModel @ViewModelInject constructor(
             is Result.Success -> {
                 _state.value =
                     FavoriteAlbumsUiState.Content(
-                        data = FavoriteAlbumsUiModel(result.data.count())
+                        data = FavoriteAlbumsUiModel(
+                            result.data.count()
+                        )
                     )
             }
             is Result.Error -> _state.value =

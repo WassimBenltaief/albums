@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/appNavGraph"
-    app:startDestination="@id/AlbumNavGraph"
+    app:startDestination="@id/albumNavGraph"
     tools:ignore="UnusedNavigation">
 
     <include-dynamic
-        android:id="@+id/AlbumNavGraph"
+        android:id="@+id/albumNavGraph"
         app:graphResName="nav_graph"
         app:moduleName="feature_albums" />
+
+    <include-dynamic
+        android:id="@+id/favoriteNavGraph"
+        app:graphResName="nav_graph"
+        app:moduleName="feature_favorite" />
 
     <fragment
         android:id="@+id/profile_dest"
         android:name="com.wassim.showcase.features.profile.ProfileFragment"
         android:label="ProfileFragment" />
-
-    <fragment
-        android:id="@+id/favorite_dest"
-        android:name="com.wassim.showcase.features.favorite.view.FavoriteAlbumsFragment"
-        android:label="FavoriteAlbumsFragment" />
 
 </navigation>

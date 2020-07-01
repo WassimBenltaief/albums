@@ -1,6 +1,7 @@
 package com.wassim.showcase.featurealbums.di
 
 import androidx.lifecycle.ViewModel
+import com.wassim.showcase.di.ViewModelKey
 import com.wassim.showcase.featurealbums.view.item.usecase.GetAlbumInfoUseCase
 import com.wassim.showcase.featurealbums.view.item.usecase.SaveAlbumUseCase
 import com.wassim.showcase.featurealbums.view.item.view.AlbumViewModel

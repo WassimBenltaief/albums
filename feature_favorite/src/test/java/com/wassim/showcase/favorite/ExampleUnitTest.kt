@@ -1,4 +1,4 @@
-package com.wassim.showcase.featurealbums
+package com.wassim.showcase.favorite
 
 import org.junit.Test
 

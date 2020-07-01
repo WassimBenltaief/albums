@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             bottomNavigationView.setupWithNavController(this)
             val navigator = KeepStateNavigator(
                 applicationContext,
-                navHostFragment.childFragmentManager,
+                host.childFragmentManager,
                 R.id.navHostFragment
             )
             navigatorProvider += navigator

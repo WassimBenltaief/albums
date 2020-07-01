@@ -4,10 +4,9 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.wassim.showcase.R
 import com.wassim.albums.view.list.AlbumsUiState
-import com.wassim.showcase.features.favorite.usecase.GetAllFavoriteAlbumsUseCase
+import com.wassim.showcase.favorite.usecase.GetAllFavoriteAlbumsUseCase
 import com.wassim.showcase.utils.Result
 import com.wassim.testutils.MainCoroutineRule
-import com.wassim.testutils.observeForTesting
 import com.wassim.testutils.stubSearchResponse
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -28,9 +27,9 @@ class FavoriteAlbumsViewModelTest {
     @get:Rule
     val testInstantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
 
-    lateinit var viewModel: FavoriteAlbumsViewModel
+    lateinit var viewModel: com.wassim.showcase.favorite.view.FavoriteAlbumsViewModel
 
-    private val getAllFavoriteAlbumsUseCase: GetAllFavoriteAlbumsUseCase = mockk()
+    private val getAllFavoriteAlbumsUseCase: com.wassim.showcase.favorite.usecase.GetAllFavoriteAlbumsUseCase = mockk()
     private val mockedSuccessResponse = stubSearchResponse(10).albums()
     private val uiStateObserver: Observer<com.wassim.albums.view.list.AlbumsUiState> = spyk()
 
@@ -42,7 +41,9 @@ class FavoriteAlbumsViewModelTest {
         } returns Result.Success(mockedSuccessResponse)
 
         // observe
-        viewModel = FavoriteAlbumsViewModel(getAllFavoriteAlbumsUseCase)
+        viewModel = com.wassim.showcase.favorite.view.FavoriteAlbumsViewModel(
+            getAllFavoriteAlbumsUseCase
+        )
         viewModel.uiState.observeForTesting(uiStateObserver) {
             viewModel.loadFavoriteAlbums()
             // verify
@@ -66,7 +67,9 @@ class FavoriteAlbumsViewModelTest {
         } returns Result.Error(exception)
 
         // observe
-        viewModel = FavoriteAlbumsViewModel(getAllFavoriteAlbumsUseCase)
+        viewModel = com.wassim.showcase.favorite.view.FavoriteAlbumsViewModel(
+            getAllFavoriteAlbumsUseCase
+        )
         viewModel.uiState.observeForTesting(uiStateObserver) {
             viewModel.loadFavoriteAlbums()
             // verify

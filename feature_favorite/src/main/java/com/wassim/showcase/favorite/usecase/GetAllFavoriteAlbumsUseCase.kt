@@ -1,4 +1,4 @@
-package com.wassim.showcase.features.favorite.usecase
+package com.wassim.showcase.favorite.usecase
 
 import com.wassim.showcase.data.Album
 import com.wassim.showcase.utils.Result

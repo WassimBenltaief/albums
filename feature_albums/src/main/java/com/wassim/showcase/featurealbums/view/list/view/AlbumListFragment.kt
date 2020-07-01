@@ -34,15 +34,19 @@ class AlbumListFragment : Fragment(R.layout.albumlist_fragment) {
      * This way we call the initial load albums only one time per instance.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
-        // inject dependencies first
-        DaggerAlbumsComponent.factory().create(
-            EntryPointAccessors.fromApplication(requireContext(), DynamicFeaturesDependencies::class.java)
-        ).inject(this)
-
-        // then run onCreate logic
+        inject()
         super.onCreate(savedInstanceState)
         albumListViewModel.loadAlbums()
         Timber.d("loadAlbums called")
+    }
+
+    private fun inject() {
+        DaggerAlbumsComponent.factory().create(
+            EntryPointAccessors.fromApplication(
+                requireContext(),
+                DynamicFeaturesDependencies::class.java
+            )
+        ).inject(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,12 +67,11 @@ class AlbumListFragment : Fragment(R.layout.albumlist_fragment) {
     }
 
     private fun openAlbumDetails(album: AlbumUiModel) {
-        val action =
-            AlbumListFragmentDirections.actionNext(
-                album.id,
-                album.name,
-                album.artist
-            )
+        val action = AlbumListFragmentDirections.actionNext(
+            album.id,
+            album.name,
+            album.artist
+        )
         findNavController().navigate(action)
     }
 

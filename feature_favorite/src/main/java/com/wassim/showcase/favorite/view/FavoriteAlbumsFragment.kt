@@ -1,23 +1,32 @@
-package com.wassim.showcase.features.favorite.view
+package com.wassim.showcase.favorite.view
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
-import com.wassim.showcase.R
-import com.wassim.showcase.features.favorite.FavoriteAlbumsUiState
-import dagger.hilt.android.AndroidEntryPoint
+import com.wassim.showcase.di.DynamicFeaturesDependencies
+import com.wassim.showcase.favorite.FavoriteAlbumsUiState
+import com.wassim.showcase.favorite.R
+import com.wassim.showcase.favorite.di.DaggerFavoriteComponent
+import dagger.hilt.android.EntryPointAccessors
 import kotlinx.android.synthetic.main.profile_favorite_albums.*
 import timber.log.Timber
+import javax.inject.Inject
 
-@AndroidEntryPoint
 class FavoriteAlbumsFragment : Fragment(R.layout.profile_favorite_albums) {
 
-    private val viewModel: FavoriteAlbumsViewModel by viewModels()
+    @Inject
+    lateinit var viewModel: FavoriteAlbumsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // inject dagger component
+        DaggerFavoriteComponent.factory().create(
+            EntryPointAccessors.fromApplication(
+                requireContext(),
+                DynamicFeaturesDependencies::class.java
+            )
+        ).inject(this)
         super.onCreate(savedInstanceState)
         viewModel.loadFavoriteAlbums()
     }

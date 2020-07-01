@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: "com.android.dynamic-feature"
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: "androidx.navigation.safeargs.kotlin"
@@ -14,7 +14,6 @@ android {
     buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "com.wassim.showcase"
         minSdkVersion 22
         targetSdkVersion 29
         versionCode 1
@@ -22,23 +21,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
-        }
-        debug {
-
-        }
-    }
-
-    sourceSets {
-        test { java.srcDirs += "$projectDir/src/testShared" }
-        androidTest { java.srcDirs += "$projectDir/src/testShared" }
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -47,7 +29,6 @@ android {
         exclude 'META-INF/AL2.0'
         exclude 'META-INF/LGPL2.1'
     }
-    dynamicFeatures = [':feature_albums', ':feature_favorite']
 }
 
 kapt {
@@ -58,4 +39,9 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(":app")
 }

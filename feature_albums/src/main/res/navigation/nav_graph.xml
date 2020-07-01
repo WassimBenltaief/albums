@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:moduleName="feature_albums"
     app:startDestination="@id/album_list_dest"
-    tools:ignore="UnusedNavigation">
+    tools:ignore="MissingDefaultResource,UnusedNavigation">
 
     <fragment
         android:id="@+id/album_list_dest"

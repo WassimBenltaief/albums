@@ -1,4 +1,4 @@
-package com.wassim.showcase.features.favorite
+package com.wassim.showcase.favorite
 
 import androidx.annotation.StringRes
 

@@ -7,10 +7,14 @@ import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "album",
-    indices = [
-        Index(AlbumEntity.KEY_REMOTE_ID),
-        Index(AlbumEntity.KEY_NAME),
-        Index(AlbumEntity.KEY_ARTIST)
+    indices = [Index(
+        value = [
+            AlbumEntity.KEY_REMOTE_ID,
+            AlbumEntity.KEY_NAME,
+            AlbumEntity.KEY_ARTIST
+        ],
+        unique = true
+    )
     ]
 )
 data class AlbumEntity(
