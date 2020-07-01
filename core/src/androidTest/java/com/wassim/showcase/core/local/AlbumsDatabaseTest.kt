@@ -1,8 +1,13 @@
-package com.wassim.showcase.data.local
+package com.wassim.showcase.core.local
 
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
+import com.wassim.showcase.core.data.local.AlbumsDao
+import com.wassim.showcase.core.data.local.AlbumsDatabase
+import com.wassim.showcase.core.data.local.TagsDao
+import com.wassim.showcase.core.data.local.model.asAlbumEntity
+import com.wassim.showcase.core.data.local.model.asTagEntity
 import com.wassim.showcase.core.utils.album
 import com.wassim.showcase.core.utils.tag
 import java.io.IOException
