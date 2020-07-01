@@ -9,8 +9,8 @@ import com.wassim.showcase.favorite.FavoriteAlbumsUiModel
 import com.wassim.showcase.favorite.FavoriteAlbumsUiState
 import com.wassim.showcase.favorite.usecase.GetAllFavoriteAlbumsUseCase
 import com.wassim.showcase.utils.Result
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 class FavoriteAlbumsViewModel @Inject constructor(
     val getAllFavoriteAlbums: GetAllFavoriteAlbumsUseCase

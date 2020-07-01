@@ -9,8 +9,8 @@ import com.wassim.showcase.featurealbums.view.list.AlbumsUiState
 import com.wassim.showcase.featurealbums.view.list.usecase.GetAlbumsUseCase
 import com.wassim.showcase.featurealbums.view.toUiModel
 import com.wassim.showcase.utils.Result
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 class AlbumListViewModel @Inject constructor(
     val getAlbums: GetAlbumsUseCase

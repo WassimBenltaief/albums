@@ -5,14 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.wassim.showcase.R
-import com.wassim.showcase.data.Album
+import com.wassim.showcase.core.data.remote.Album
 import com.wassim.showcase.featurealbums.view.item.SingleAlbumUiState
 import com.wassim.showcase.featurealbums.view.item.usecase.GetAlbumInfoUseCase
 import com.wassim.showcase.featurealbums.view.item.usecase.SaveAlbumUseCase
 import com.wassim.showcase.featurealbums.view.toUiModel
 import com.wassim.showcase.utils.Result
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 class AlbumViewModel @Inject constructor(
     private val getAlbumInfo: GetAlbumInfoUseCase,

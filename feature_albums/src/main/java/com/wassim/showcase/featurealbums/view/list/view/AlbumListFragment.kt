@@ -8,15 +8,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.ImageLoader
 import com.google.android.material.snackbar.Snackbar
-import com.wassim.showcase.di.DynamicFeaturesDependencies
+import com.wassim.showcase.core.di.DynamicFeaturesDependencies
 import com.wassim.showcase.featurealbums.R
 import com.wassim.showcase.featurealbums.di.DaggerAlbumsComponent
 import com.wassim.showcase.featurealbums.view.AlbumUiModel
 import com.wassim.showcase.featurealbums.view.list.AlbumsUiState
 import dagger.hilt.android.EntryPointAccessors
+import javax.inject.Inject
 import kotlinx.android.synthetic.main.albumlist_fragment.*
 import timber.log.Timber
-import javax.inject.Inject
 
 class AlbumListFragment : Fragment(R.layout.albumlist_fragment) {
 

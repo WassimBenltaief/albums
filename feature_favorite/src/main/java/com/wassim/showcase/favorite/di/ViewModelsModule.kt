@@ -1,7 +1,7 @@
 package com.wassim.showcase.favorite.di
 
 import androidx.lifecycle.ViewModel
-import com.wassim.showcase.di.ViewModelKey
+import com.wassim.showcase.core.di.ViewModelKey
 import com.wassim.showcase.favorite.usecase.GetAllFavoriteAlbumsUseCase
 import com.wassim.showcase.favorite.view.FavoriteAlbumsViewModel
 import dagger.Module

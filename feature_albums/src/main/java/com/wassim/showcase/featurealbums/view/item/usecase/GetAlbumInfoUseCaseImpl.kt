@@ -1,9 +1,9 @@
 package com.wassim.showcase.featurealbums.view.item.usecase
 
-import com.wassim.showcase.data.remote.ApiService
+import com.wassim.showcase.core.data.remote.ApiService
 import com.wassim.showcase.utils.safeApiCall
-import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers
 
 class GetAlbumInfoUseCaseImpl @Inject constructor(
     private val apiService: ApiService

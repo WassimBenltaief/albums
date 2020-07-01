@@ -11,6 +11,4 @@
         <dist:fusing dist:include="true" />
     </dist:module>
 
-    <application android:name="com.wassim.showcase.App" />
-
 </manifest>

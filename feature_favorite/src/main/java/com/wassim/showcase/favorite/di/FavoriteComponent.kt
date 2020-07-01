@@ -1,6 +1,6 @@
 package com.wassim.showcase.favorite.di
 
-import com.wassim.showcase.di.DynamicFeaturesDependencies
+import com.wassim.showcase.core.di.DynamicFeaturesDependencies
 import com.wassim.showcase.favorite.view.FavoriteAlbumsFragment
 import dagger.Component
 

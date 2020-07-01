@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/profile_dest"
-        android:name="com.wassim.showcase.features.profile.ProfileFragment"
+        android:name="com.wassim.showcase.view.ProfileFragment"
         android:label="ProfileFragment" />
 
 </navigation>

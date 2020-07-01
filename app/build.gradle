@@ -34,11 +34,6 @@ android {
         }
     }
 
-    sourceSets {
-        test { java.srcDirs += "$projectDir/src/testShared" }
-        androidTest { java.srcDirs += "$projectDir/src/testShared" }
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -48,6 +43,10 @@ android {
         exclude 'META-INF/LGPL2.1'
     }
     dynamicFeatures = [':feature_albums', ':feature_favorite']
+}
+
+dependencies {
+    implementation project(":core")
 }
 
 kapt {
