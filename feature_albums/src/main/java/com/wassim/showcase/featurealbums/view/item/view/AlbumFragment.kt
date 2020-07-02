@@ -5,7 +5,9 @@ import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
@@ -14,14 +16,12 @@ import coil.transform.GrayscaleTransformation
 import com.google.android.material.chip.Chip
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import com.wassim.showcase.core.di.DynamicFeaturesDependencies
 import com.wassim.showcase.featurealbums.R
-import com.wassim.showcase.featurealbums.di.DaggerAlbumsComponent
+import com.wassim.showcase.featurealbums.di.inject
 import com.wassim.showcase.featurealbums.view.AlbumUiModel
 import com.wassim.showcase.featurealbums.view.item.SingleAlbumUiState
-import dagger.hilt.android.EntryPointAccessors
-import javax.inject.Inject
 import kotlinx.android.synthetic.main.album_fragment.*
+import javax.inject.Inject
 
 class AlbumFragment : Fragment(R.layout.album_fragment) {
 
@@ -29,17 +29,14 @@ class AlbumFragment : Fragment(R.layout.album_fragment) {
     lateinit var imageLoader: ImageLoader
 
     @Inject
-    lateinit var albumViewModel: AlbumViewModel
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private val albumViewModel by viewModels<AlbumViewModel> { viewModelFactory }
 
     private val args: AlbumFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        DaggerAlbumsComponent.factory().create(
-            EntryPointAccessors.fromApplication(
-                requireContext(),
-                DynamicFeaturesDependencies::class.java
-            )
-        ).inject(this)
+        inject(this)
         super.onCreate(savedInstanceState)
     }
 

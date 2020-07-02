@@ -1,12 +1,15 @@
 package com.wassim.showcase.favorite.di
 
-import com.wassim.showcase.core.di.DynamicFeaturesDependencies
+import com.wassim.showcase.core.di.CoreComponent
+import com.wassim.showcase.core.di.FeatureScope
+import com.wassim.showcase.core.di.ViewModelFactoryModule
 import com.wassim.showcase.favorite.view.FavoriteAlbumsFragment
 import dagger.Component
 
+@FeatureScope
 @Component(
-    modules = [FavoriteModule::class, ViewModelsModule::class],
-    dependencies = [DynamicFeaturesDependencies::class]
+    dependencies = [CoreComponent::class],
+    modules = [ViewModelFactoryModule::class, FavoriteModule::class]
 )
 interface FavoriteComponent {
 
@@ -14,6 +17,6 @@ interface FavoriteComponent {
 
     @Component.Factory
     interface Factory {
-        fun create(dependencies: DynamicFeaturesDependencies): FavoriteComponent
+        fun create(dependencies: CoreComponent): FavoriteComponent
     }
 }

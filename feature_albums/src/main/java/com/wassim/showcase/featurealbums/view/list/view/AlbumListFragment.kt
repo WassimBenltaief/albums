@@ -3,20 +3,20 @@ package com.wassim.showcase.featurealbums.view.list.view
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.ImageLoader
 import com.google.android.material.snackbar.Snackbar
-import com.wassim.showcase.core.di.DynamicFeaturesDependencies
 import com.wassim.showcase.featurealbums.R
-import com.wassim.showcase.featurealbums.di.DaggerAlbumsComponent
+import com.wassim.showcase.featurealbums.di.inject
 import com.wassim.showcase.featurealbums.view.AlbumUiModel
 import com.wassim.showcase.featurealbums.view.list.AlbumsUiState
-import dagger.hilt.android.EntryPointAccessors
-import javax.inject.Inject
 import kotlinx.android.synthetic.main.albumlist_fragment.*
 import timber.log.Timber
+import javax.inject.Inject
 
 class AlbumListFragment : Fragment(R.layout.albumlist_fragment) {
 
@@ -24,29 +24,15 @@ class AlbumListFragment : Fragment(R.layout.albumlist_fragment) {
     lateinit var imageLoader: ImageLoader
 
     @Inject
-    lateinit var albumListViewModel: AlbumListViewModel
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var albumsAdapter: AlbumsAdapter
 
-    /**
-     * We call load albums in onCreate because the Fragment view got destroyed
-     * on every navigation.
-     * This way we call the initial load albums only one time per instance.
-     */
-    override fun onCreate(savedInstanceState: Bundle?) {
-        inject()
-        super.onCreate(savedInstanceState)
-        albumListViewModel.loadAlbums()
-        Timber.d("loadAlbums called")
-    }
+    private val albumListViewModel by viewModels<AlbumListViewModel> { viewModelFactory }
 
-    private fun inject() {
-        DaggerAlbumsComponent.factory().create(
-            EntryPointAccessors.fromApplication(
-                requireContext(),
-                DynamicFeaturesDependencies::class.java
-            )
-        ).inject(this)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        inject(this)
+        super.onCreate(savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -11,11 +11,12 @@ import okhttp3.OkHttpClient
 
 @EntryPoint
 @InstallIn(ApplicationComponent::class)
-interface DynamicFeaturesDependencies {
-
+interface CoreComponent {
     fun okHttp(): OkHttpClient
     fun apiService(): ApiService
     fun albumsDao(): AlbumsDao
     fun tagsDao(): TagsDao
     fun imageLoader(): ImageLoader
 }
+
+
