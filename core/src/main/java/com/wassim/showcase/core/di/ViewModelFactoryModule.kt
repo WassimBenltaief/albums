@@ -12,5 +12,4 @@ interface ViewModelFactoryModule {
 
     @get:[FeatureScope Binds]
     val ViewModelFactory.viewModelFactory: ViewModelProvider.Factory
-
 }

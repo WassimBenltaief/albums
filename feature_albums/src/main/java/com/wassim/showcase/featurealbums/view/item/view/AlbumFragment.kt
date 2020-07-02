@@ -20,8 +20,8 @@ import com.wassim.showcase.featurealbums.R
 import com.wassim.showcase.featurealbums.di.inject
 import com.wassim.showcase.featurealbums.view.AlbumUiModel
 import com.wassim.showcase.featurealbums.view.item.SingleAlbumUiState
-import kotlinx.android.synthetic.main.album_fragment.*
 import javax.inject.Inject
+import kotlinx.android.synthetic.main.album_fragment.*
 
 class AlbumFragment : Fragment(R.layout.album_fragment) {
 

@@ -14,9 +14,9 @@ import com.wassim.showcase.featurealbums.R
 import com.wassim.showcase.featurealbums.di.inject
 import com.wassim.showcase.featurealbums.view.AlbumUiModel
 import com.wassim.showcase.featurealbums.view.list.AlbumsUiState
+import javax.inject.Inject
 import kotlinx.android.synthetic.main.albumlist_fragment.*
 import timber.log.Timber
-import javax.inject.Inject
 
 class AlbumListFragment : Fragment(R.layout.albumlist_fragment) {
 
@@ -33,6 +33,7 @@ class AlbumListFragment : Fragment(R.layout.albumlist_fragment) {
     override fun onCreate(savedInstanceState: Bundle?) {
         inject(this)
         super.onCreate(savedInstanceState)
+        albumListViewModel.loadAlbums()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

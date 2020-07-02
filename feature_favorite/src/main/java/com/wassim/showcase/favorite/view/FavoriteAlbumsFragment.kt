@@ -10,9 +10,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.wassim.showcase.favorite.FavoriteAlbumsUiState
 import com.wassim.showcase.favorite.R
 import com.wassim.showcase.favorite.di.inject
+import javax.inject.Inject
 import kotlinx.android.synthetic.main.profile_favorite_albums.*
 import timber.log.Timber
-import javax.inject.Inject
 
 class FavoriteAlbumsFragment : Fragment(R.layout.profile_favorite_albums) {
 

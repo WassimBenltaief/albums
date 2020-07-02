@@ -18,5 +18,3 @@ interface CoreComponent {
     fun tagsDao(): TagsDao
     fun imageLoader(): ImageLoader
 }
-
-

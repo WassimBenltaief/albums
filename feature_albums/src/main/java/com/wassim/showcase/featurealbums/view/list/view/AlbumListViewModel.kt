@@ -21,23 +21,21 @@ class AlbumListViewModel @Inject constructor(
     val uiState: LiveData<AlbumsUiState>
         get() = _state
 
-    init {
-        viewModelScope.launch {
-            when (val result = getAlbums()) {
-                is Result.Success -> {
-                    val uiModel = result.data.map {
-                        it.toUiModel()
-                    }
-                    _state.value =
-                        AlbumsUiState.Content(
-                            list = uiModel
-                        )
+    fun loadAlbums() = viewModelScope.launch {
+        when (val result = getAlbums()) {
+            is Result.Success -> {
+                val uiModel = result.data.map {
+                    it.toUiModel()
                 }
-                is Result.Error -> _state.value =
-                    AlbumsUiState.Error(
-                        resId = R.string.generic_albums_error
+                _state.value =
+                    AlbumsUiState.Content(
+                        list = uiModel
                     )
             }
+            is Result.Error -> _state.value =
+                AlbumsUiState.Error(
+                    resId = R.string.generic_albums_error
+                )
         }
     }
 }

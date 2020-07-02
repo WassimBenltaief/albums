@@ -10,8 +10,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
-import okhttp3.OkHttpClient
 import javax.inject.Singleton
+import okhttp3.OkHttpClient
 
 @Module
 @InstallIn(ApplicationComponent::class)
