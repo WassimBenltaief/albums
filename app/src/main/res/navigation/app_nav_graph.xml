@@ -8,12 +8,12 @@
 
     <include-dynamic
         android:id="@+id/albumNavGraph"
-        app:graphResName="nav_graph"
+        app:graphResName="albums_nav_graph"
         app:moduleName="feature_albums" />
 
     <include-dynamic
         android:id="@+id/favoriteNavGraph"
-        app:graphResName="nav_graph"
+        app:graphResName="favorite_nav_graph"
         app:moduleName="feature_favorite" />
 
     <fragment
