@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:moduleName="feature_albums"
+    app:startDestination="@id/album_list_dest"
+    tools:ignore="MissingDefaultResource,UnusedNavigation">
+
+    <fragment
+        android:id="@+id/album_list_dest"
+        android:name="com.wassim.showcase.featurealbums.view.list.view.AlbumListFragment"
+        android:label="AlbumListFragment"
+        app:moduleName="feature_albums"
+        tools:layout="@layout/albumlist_fragment">
+        <action
+            android:id="@+id/action_next"
+            app:destination="@id/album_dest"
+            app:enterAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/album_dest"
+        android:name="com.wassim.showcase.featurealbums.view.item.view.AlbumFragment"
+        android:label="AlbumFragment"
+        app:moduleName="feature_albums">
+        <argument
+            android:name="albumId"
+            app:argType="string" />
+        <argument
+            android:name="album"
+            app:argType="string" />
+        <argument
+            android:name="artist"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

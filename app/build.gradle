@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: "kotlin-kapt"
+apply plugin: 'dagger.hilt.android.plugin'
 
 apply from: "../ktlint.gradle"
 apply from: '../test_dependencies.gradle'
@@ -26,23 +27,29 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+        }
+        debug {
+
         }
     }
-
-    sourceSets {
-        test { java.srcDirs += "$projectDir/src/testShared" }
-        androidTest { java.srcDirs += "$projectDir/src/testShared" }
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     packagingOptions {
         exclude 'META-INF/AL2.0'
         exclude 'META-INF/LGPL2.1'
     }
+    dynamicFeatures = [':feature_albums', ':feature_favorite']
+}
+
+dependencies {
+    implementation project(":core")
+}
+
+kapt {
+    correctErrorTypes true
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {

@@ -1,2 +1,6 @@
+include ':core'
+include ':testShared'
+include ':feature_favorite'
+include ':feature_albums'
 include ':app'
 rootProject.name = "Albums Showcase"
