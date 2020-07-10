@@ -1,7 +1,6 @@
-package com.wassim.showcase.view
+package com.wassim.showcase.profile
 
 import androidx.fragment.app.Fragment
-import com.wassim.showcase.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

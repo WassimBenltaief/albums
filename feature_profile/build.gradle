@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: "androidx.navigation.safeargs.kotlin"
@@ -14,24 +14,12 @@ android {
     buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "com.wassim.showcase"
         minSdkVersion 22
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
-        }
-        debug {
-
-        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -41,12 +29,6 @@ android {
         exclude 'META-INF/AL2.0'
         exclude 'META-INF/LGPL2.1'
     }
-    dynamicFeatures = [':feature_albums', ':feature_favorite']
-}
-
-dependencies {
-    api project(":core")
-    implementation project(":feature_profile")
 }
 
 kapt {
