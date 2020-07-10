@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="profile">Profile (WIP)</string>
+    <string name="profile_label">Profile (WIP)</string>
 </resources>
