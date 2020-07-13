@@ -35,6 +35,12 @@ allprojects {
  * common declaration blocks
  */
 subprojects {
+
+    // apply ktlint for all sub-projects
+    afterEvaluate {
+        apply(from = "$rootDir/ktlint.gradle.kts")
+    }
+
     plugins.whenPluginAdded {
         // add common declarations
         when (this) {

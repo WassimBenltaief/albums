@@ -31,5 +31,3 @@ dependencies {
 kapt {
     correctErrorTypes = true
 }
-
-apply(from = "$rootDir/ktlint.gradle.kts")
