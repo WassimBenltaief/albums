@@ -1,5 +1,2 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wassim.showcase.profile">
-
-    /
-</manifest>
+    package="com.wassim.showcase.profile"></manifest>
