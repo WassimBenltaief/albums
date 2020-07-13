@@ -6,7 +6,6 @@ plugins {
 }
 
 dependencies {
-    //apply(plugin = "java")
     addCommonLibraryDependencies()
     addCommonTestDependencies()
 }
